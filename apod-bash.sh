@@ -3,7 +3,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 PID=$(pgrep gnome-session)
-export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-)
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|tr '\0' '\n' |cut -d= -f2-)
 
 nasa_api_key="GET_YOUR_OWN_API_KEY"
 apod_api_url="https://api.nasa.gov/planetary/apod?api_key=$nasa_api_key"
