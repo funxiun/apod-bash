@@ -2,7 +2,7 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-PID=$(pgrep gnome-session)
+PID=$(pgrep -o gnome-session)
 export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|tr '\0' '\n' |cut -d= -f2-)
 
 nasa_api_key="GET_YOUR_OWN_API_KEY"
